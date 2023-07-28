@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Run the process "7-highlander" in the background
+./7-highlander &
+
+# Wait for some time (e.g., 5 seconds)
+sleep 5
+
+# Find the PID of the process named "7-highlander"
+pid=$(pgrep -x "7-highlander")
+
+# Check if the process exists
+if [ -z "$pid" ]; then
+  echo "Process '7-highlander' not found."
+else
+  # Terminate the process
+  echo "Killing process '7-highlander' (PID: $pid)..."
+  kill "$pid"
+fi
+
